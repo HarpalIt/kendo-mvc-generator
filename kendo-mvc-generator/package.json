@@ -1,0 +1,115 @@
+{
+  "name": "kendo-mvc-generator",
+  "displayName": "Kendo UI MVC Generator",
+  "description": "Generate Kendo UI components for ASP.NET MVC (.cshtml) with intelligent model-based automation",
+  "version": "1.0.0",
+  "publisher": "kendo-mvc-tools",
+  "icon": "images/icon.png",
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "categories": [
+    "Snippets",
+    "Other"
+  ],
+  "keywords": [
+    "kendo",
+    "kendoui",
+    "asp.net mvc",
+    "cshtml",
+    "razor",
+    "grid",
+    "form",
+    "scaffold"
+  ],
+  "activationEvents": [
+    "onLanguage:razor",
+    "onLanguage:html",
+    "workspaceContains:**/*.cshtml"
+  ],
+  "main": "./src/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "kendoMvc.generateComponent",
+        "title": "Generate Kendo MVC Component",
+        "category": "Kendo MVC"
+      },
+      {
+        "command": "kendoMvc.generateFromModel",
+        "title": "Generate Kendo Component from Model",
+        "category": "Kendo MVC"
+      },
+      {
+        "command": "kendoMvc.refreshModels",
+        "title": "Refresh Model Cache",
+        "category": "Kendo MVC"
+      }
+    ],
+    "snippets": [
+      {
+        "language": "razor",
+        "path": "./snippets/kendo-snippets.json"
+      },
+      {
+        "language": "html",
+        "path": "./snippets/kendo-snippets.json"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "kendoMvc.generateComponent",
+          "when": "editorLangId == razor || resourceExtname == .cshtml",
+          "group": "kendoMvc"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "Kendo MVC Generator",
+      "properties": {
+        "kendoMvc.modelsPath": {
+          "type": "string",
+          "default": "Models",
+          "description": "Relative path to the Models folder"
+        },
+        "kendoMvc.defaultController": {
+          "type": "string",
+          "default": "",
+          "description": "Default controller name (leave empty to auto-detect from model name)"
+        },
+        "kendoMvc.kendoCDN": {
+          "type": "string",
+          "default": "https://kendo.cdn.telerik.com/2024.1.130",
+          "description": "Kendo UI CDN base URL"
+        },
+        "kendoMvc.includeValidation": {
+          "type": "boolean",
+          "default": true,
+          "description": "Auto-include Kendo Validator on generated forms"
+        },
+        "kendoMvc.dateFormat": {
+          "type": "string",
+          "default": "MM/dd/yyyy",
+          "description": "Default date format for DatePicker fields"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "lint": "eslint src",
+    "test": "node test/runTests.js"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.74.0",
+    "eslint": "^8.28.0"
+  },
+  "dependencies": {
+    "glob": "^8.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-org/kendo-mvc-generator"
+  },
+  "license": "MIT"
+}
