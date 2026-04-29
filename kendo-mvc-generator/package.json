@@ -2,7 +2,7 @@
   "name": "kendo-mvc-generator",
   "displayName": "Kendo UI MVC Generator",
   "description": "Generate Kendo UI components for ASP.NET MVC (.cshtml) with intelligent model-based automation",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "publisher": "HarpalPatel",
   "icon": "extension/images/icon.png",
   "engines": {
